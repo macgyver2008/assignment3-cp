@@ -5,12 +5,13 @@
  * @version Beta 0.9
  * @since   2025-12.12
  */
+import java.util.InputMismatchException;
 import java.util.Scanner;
 /**
  * This is the standard "Hello, World!" program.
  */
 public final class CatalanNumber {
-    
+
     // final
     /**
      * Prevent instantiation.
@@ -31,22 +32,38 @@ public final class CatalanNumber {
      */
     public static void main(final String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int repeats = scanner.nextInt();
-        double answer = catalanCalculate(1, repeats);
-        System.out.println("The answer: " + answer);
+        try {
+            int repeats = scanner.nextInt();
+            if (repeats > 0) {
+                double answer = catalanCalculate(1, repeats);
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Input Positive number please");
+        }
     }
 
-    public static double catalanCalculate(double catalNum, int repeats) {
+    /**
+     * Calculate catalan number with recursive loops.
+     * @param catalNum
+     * @param repeats
+     * @return answer
+     */
+    public static double catalanCalculate(
+    final double catalNum, final int repeats) {
         double answer;
         int repeat = repeats;
         double number = catalNum;
         if (repeat <= 0) {
         return 0;
         } else {
-        answer = factorial(2 * number) / factorial(number + 1) /factorial(number);
-        System.out.println(repeats + "'s number: " + answer);
-        // return catalanCalculate(number++, repeat--);
-        return catalanCalculate(number++, repeat--);
+        answer = factorial(2 * number)
+        / factorial(number + 1) / factorial(number);
+        System.out.println(number + "'s number: " + answer);
+        if (repeat == 1) {
+            System.out.println(
+                "The " + number + "'s number in Catalan number:" + answer);
+        }
+        return catalanCalculate(number + 1, repeat - 1);
         }
     }
 
@@ -54,17 +71,17 @@ public final class CatalanNumber {
      * @param factNum
      * @return number
      */
-    public static double factorial(double factNum) {
+    public static double factorial(final double factNum) {
         double number = factNum;
-        double asnwer = 0;
-        if (number <=0) {
+        double answer = 0;
+        if (number <= 0) {
             System.out.print("wrong number for factorial");
         } else if (number == 1) {
-            asnwer = 1;
+            answer = 1;
         } else {
-            asnwer = number * factorial(number - 1);
-            // System.out.println("factorial: " + asnwer);
+            answer = number * factorial(number - 1);
+            // System.out.println("factorial: " + answer);
         }
-        return asnwer;
+        return answer;
     }
 }
