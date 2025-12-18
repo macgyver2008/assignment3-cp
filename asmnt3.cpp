@@ -1,7 +1,7 @@
 // 헤더 넣기 까먹음
 
 #include <iostream>
-#include <limits>
+
 
 double factorial(const double fact_num) {
   if (fact_num <= 0) {
@@ -41,7 +41,7 @@ int main() {
   int repeats;
   std::cin >> repeats;
 
-  if (std::cin.fail() || repeats <= 0) {
+  if (repeats <= 0) {
     std::cout << "Input positive number please\n";
     return 1;
   }
