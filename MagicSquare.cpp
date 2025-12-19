@@ -1,3 +1,8 @@
+// Copyright (c) 2025 St. Mother Teresa HS All rights reserved.
+
+// Created by: Yoochan Han
+// Created on: Dec 2025
+// program for get Macgic Suqare
 #include <iostream>
 
 namespace {

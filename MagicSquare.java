@@ -1,3 +1,10 @@
+/*
+ * The "Hello Word!" program, just proves you can print to terminal.
+ *
+ * @author  Yoochan Han
+ * @version Beta 0.9
+ * @since   2025-12.12
+ */
 public final class MagicSquare {
 
     /**
